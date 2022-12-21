@@ -1,0 +1,24 @@
+{
+  "name": "test-2",
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {},
+  "private": true,
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/QuentinLeFourbe/Test-2.git"
+  },
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/QuentinLeFourbe/Test-2/issues"
+  },
+  "homepage": "https://github.com/QuentinLeFourbe/Test-2#readme",
+  "devDependencies": {
+    "nx": "15.3.3",
+    "prettier": "^2.6.2"
+  },
+  "workspaces": [
+    "packages/*"
+  ]
+}
