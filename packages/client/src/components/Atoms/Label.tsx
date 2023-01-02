@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-type Props = React.HtmlHTMLAttributes<HTMLDivElement> & {
+type Props = React.HtmlHTMLAttributes<HTMLLabelElement> & {
   children: React.ReactNode;
 };
 
@@ -11,6 +11,6 @@ function Label({ children, ...props }: Props) {
 
 export default Label;
 
-const StyledLabel = styled.div`
+const StyledLabel = styled.label`
   padding: 8px 16px;
 `;

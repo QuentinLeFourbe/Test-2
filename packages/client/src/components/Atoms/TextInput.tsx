@@ -4,7 +4,8 @@ import styled from 'styled-components';
 type TextInputProps = React.HtmlHTMLAttributes<HTMLInputElement> & {};
 
 function TextInput({ ...props }: TextInputProps) {
-  return <StyledInput {...props} type="text" />;
+  console.log({ props });
+  return <input type="text" {...props} />;
 }
 
 export default TextInput;
