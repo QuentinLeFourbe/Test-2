@@ -12,5 +12,5 @@ function Label({ children, ...props }: LabelProps) {
 export default Label;
 
 const StyledLabel = styled.label`
-  padding: 8px 16px;
+  font-weight: bold;
 `;

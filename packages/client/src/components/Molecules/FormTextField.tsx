@@ -6,15 +6,21 @@ import TextInput from '../Atoms/TextInput';
 type FormTextFieldProps = {
   label: string;
   register: any;
+  error: any;
 };
 
-function FormTextField({ label, register }: FormTextFieldProps) {
-  console.log(register);
+function FormTextField({ label, register, error }: FormTextFieldProps) {
+  console.log('error', error);
   return (
     <FieldContainer>
       <Label>{label}</Label>
-      {/* <input type="text" {...register} /> */}
       <TextInput {...register} />
+      {error && error.type === 'required' && (
+        <ErrorSpan>Champs nécessaire</ErrorSpan>
+      )}
+      {error && error.type === 'maxLength' && (
+        <ErrorSpan>Longueur maximum atteinte</ErrorSpan>
+      )}
     </FieldContainer>
   );
 }
@@ -24,4 +30,9 @@ export default FormTextField;
 export const FieldContainer = styled.div`
   display: flex;
   flex-direction: column;
+  gap: 8px;
+`;
+
+export const ErrorSpan = styled.span`
+  color: red;
 `;
