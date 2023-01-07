@@ -3,9 +3,9 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "watch-client": "nx run client:dev",
-    "watch-server": "nx run server:watch",
-    "storybook": "nx run storybook:storybook"
+    "watch-client": "npm run dev -w client",
+    "watch-server": "npm run watch -w server",
+    "storybook": "npm run storybook -w storybook"
   },
   "private": true,
   "dependencies": {
@@ -31,12 +31,6 @@
   },
   "homepage": "https://github.com/QuentinLeFourbe/Test-2#readme",
   "devDependencies": {
-    "@nrwl/eslint-plugin-nx": "15.4.0-beta.3",
-    "@nrwl/express": "15.4.0-beta.3",
-    "@nrwl/jest": "15.4.0-beta.3",
-    "@nrwl/linter": "15.4.0-beta.3",
-    "@nrwl/node": "15.4.0-beta.3",
-    "@nrwl/vite": "15.4.0-beta.3",
     "@types/express": "4.17.13",
     "@types/jest": "28.1.1",
     "@types/node": "18.7.1",
@@ -46,6 +40,7 @@
     "@vitejs/plugin-react": "^3.0.0",
     "@vitest/ui": "^0.25.8",
     "concurrently": "^7.6.0",
+    "cross-env": "^7.0.3",
     "eslint": "~8.15.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "8.1.0",
@@ -53,7 +48,6 @@
     "jest-environment-jsdom": "28.1.1",
     "jsdom": "~20.0.3",
     "nodemon": "^2.0.20",
-    "nx": "15.3.3",
     "prettier": "^2.6.2",
     "ts-jest": "28.0.5",
     "ts-node": "10.9.1",
