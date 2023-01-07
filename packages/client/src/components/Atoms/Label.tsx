@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
-type Props = React.HtmlHTMLAttributes<HTMLLabelElement> & {
+export type LabelProps = React.HtmlHTMLAttributes<HTMLLabelElement> & {
   children: React.ReactNode;
 };
 
-function Label({ children, ...props }: Props) {
+function Label({ children, ...props }: LabelProps) {
   return <StyledLabel {...props}>{children}</StyledLabel>;
 }
 
