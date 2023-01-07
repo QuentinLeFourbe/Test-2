@@ -1,12 +1,12 @@
 import React, { InputHTMLAttributes } from 'react';
 import styled from 'styled-components';
 
-type TextInputProps = React.HtmlHTMLAttributes<HTMLInputElement> & {};
+export type TextInputProps = React.HtmlHTMLAttributes<HTMLInputElement> & {};
 
-function TextInput({ ...props }: TextInputProps) {
-  console.log({ props });
-  return <input type="text" {...props} />;
-}
+const TextInput = React.forwardRef<HTMLInputElement>(({ ...props }: TextInputProps, ref )=> {
+  return <StyledInput type="text" ref={ref} {...props} />;
+});
+
 
 export default TextInput;
 
