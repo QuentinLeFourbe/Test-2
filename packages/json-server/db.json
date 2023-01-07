@@ -1,0 +1,26 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "email": "johndoe@totomail.com",
+      "city": "New York"
+    },
+    {
+      "id": 2,
+      "name": "Jane Doe",
+      "email": "janedoe@totomail.com",
+      "city": "England"
+    },
+    {
+      "id": 3,
+      "name": "John Smith",
+      "email": "toto@mail.com"
+    },
+    {
+      "id": 4,
+      "name": "Jane Smith",
+      "email": "janesmith@ewample.com"
+    }
+  ]
+}
