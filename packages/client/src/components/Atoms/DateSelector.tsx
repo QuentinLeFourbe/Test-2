@@ -137,7 +137,7 @@ const DateContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   grid-template-rows: repeat(5, 1fr);
-  gap: 4px;
+  gap: 8px;
   justify-items: center;
   align-items: center;
 `;
@@ -146,7 +146,6 @@ const MonthLabel = styled.p`
   color: #5c7dd2;
   font-weight: bold;
   font-size: 12px;
-  padding: 0px 8px;
 `;
 
 const CalendarDate = styled.button<{
