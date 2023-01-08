@@ -5,7 +5,7 @@ import {
   startOfDay,
   startOfHour,
 } from 'date-fns';
-import React, { useEffect, useState } from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
 
 export type TimeSelectorProps = {
