@@ -4,7 +4,6 @@
   "license": "MIT",
   "scripts": {
     "watch-client": "npm run dev -w client",
-    "watch-server": "npm run watch -w server",
     "json-server": "npm run watch -w json-server",
     "storybook": "npm run storybook -w storybook"
   },
