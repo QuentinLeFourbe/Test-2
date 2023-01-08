@@ -50,10 +50,10 @@ const SecondaryButton = styled(StyledButton)`
   //add a slight shadow to the button
   box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.1);
   &:hover {
-    background-color: #5b9cff;
+    background-color: #efefef;
   }
 
   &:active {
-    background-color: #7eb1fe;
+    background-color: #d9d9d9;
   }
 `;
