@@ -1,5 +1,3 @@
-//Make a story for the DateSelector component
-//
 import React from 'react';
 import DateSelector, {
   DateSelectorProps,

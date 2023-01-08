@@ -1,5 +1,3 @@
-//create a story for the Header component
-
 import React from 'react';
 import Header from '../../../client/src/components/Organisms/Header';
 import { Story, Meta } from '@storybook/react/types-6-0';
