@@ -1,4 +1,4 @@
-import { format } from 'date-fns';
+import { format, getHours, setHours, startOfDay, startOfHour } from 'date-fns';
 import React from 'react';
 import styled from 'styled-components';
 import Button from '../Atoms/Button';
@@ -8,30 +8,36 @@ import TimeSelector from '../Atoms/TimeSelector';
 type Props = {};
 
 function Calendar({}: Props) {
-  const [date, setDate] = React.useState<Date>(new Date());
-  const [time, setTime] = React.useState<Date>(new Date());
+  const [date, setDate] = React.useState<Date>(startOfDay(new Date()));
+  const [time, setTime] = React.useState<Date>(startOfHour(new Date()));
 
   const schedule = () => {
-    alert(`Date: ${date} Time: ${time}`);
+    const scheduleDate = setHours(date, getHours(time));
+    alert(`
+    Scheduled for ${format(scheduleDate, 'dd/MM/yyyy HH:mm a')}
+    scheduleDate: ${scheduleDate}
+    `);
   };
 
   return (
     <Container>
       <Title>Schedule Response</Title>
-      <DateContainer>
-        <RowContainer>
-          <LabelSpan>Date</LabelSpan>
-          <DateSpan>{format(date, 'dd/MM/yyyy')}</DateSpan>
-        </RowContainer>
-        <RowContainer>
-          <LabelSpan>Time</LabelSpan>
-          <DateSpan>{format(time, 'HH:mm a')}</DateSpan>
-        </RowContainer>
-      </DateContainer>
-      <SelectorsContainer>
-        <DateSelector onDateSelected={setDate} />
-        <TimeSelector onTimeSelected={setTime} />
-      </SelectorsContainer>
+      <RowContainer>
+        <DateContainer>
+          <LabelContainer>
+            <LabelSpan>Date</LabelSpan>
+            <DateSpan>{format(date, 'dd/MM/yyyy')}</DateSpan>
+          </LabelContainer>
+          <DateSelector onDateSelected={setDate} />
+        </DateContainer>
+        <TimeContainer>
+          <LabelContainer>
+            <LabelSpan>Time</LabelSpan>
+            <DateSpan>{format(time, 'HH:mm a')}</DateSpan>
+          </LabelContainer>
+          <TimeSelector onTimeSelected={setTime} />
+        </TimeContainer>
+      </RowContainer>
       <ButtonsContainer>
         <Button onClick={() => schedule()}>Schedule</Button>
         <Button mode="secondary">Cancel</Button>
@@ -53,11 +59,21 @@ const Container = styled.div`
   padding: 16px;
 `;
 
+const LabelContainer = styled.div`
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  gap: 16px;
+`;
+
 const DateContainer = styled.div`
   display: flex;
-  flex-flow: row wrap;
-  align-items: center;
-  justify-content: space-between;
+  flex-flow: column nowrap;
+`;
+
+const TimeContainer = styled.div`
+  display: flex;
+  flex-flow: column nowrap;
 `;
 
 const LabelSpan = styled.span`
@@ -68,7 +84,6 @@ const LabelSpan = styled.span`
 const RowContainer = styled.div`
   display: flex;
   flex-flow: row nowrap;
-  align-items: center;
   gap: 8px;
 `;
 
@@ -80,22 +95,15 @@ const DateSpan = styled.span`
   color: #777f89;
 `;
 
-const SelectorsContainer = styled.div`
-  display: flex;
-  flex-flow: row wrap;
-  gap: 16px;
-  padding: 16px 0px;
-  justify-content: space-between;
-`;
-
 const Title = styled.div`
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
-  color: #222c37;
+  color: #545b61;
   margin: 0px 0px 24px 0px;
 `;
 
 const ButtonsContainer = styled.div`
+  padding-top: 8px;
   display: flex;
   flex-flow: row nowrap;
   gap: 16px;
