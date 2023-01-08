@@ -1,7 +1,7 @@
 # Test2
 
 Temps mit pour faire le projet:
-13h environ
+13h-14h environ
 
 Projet fait avec Vite js (https://vitejs.dev/) et styled components (https://styled-components.com/).
 
