@@ -19,9 +19,9 @@ const StyledSubmitButton = styled.input`
   background-color: green;
   color: #fff;
   border: none;
-  border-radius: 4px;
-  padding: 8px 16px;
-  font-size: 16px;
+  border-radius: 8px;
+  padding: 12px 20px;
+  font-size: 12px;
 
   &:hover {
     background-color: #333;
