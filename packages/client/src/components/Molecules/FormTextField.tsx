@@ -10,7 +10,6 @@ type FormTextFieldProps = {
 };
 
 function FormTextField({ label, register, error }: FormTextFieldProps) {
-  console.log('error', error);
   return (
     <FieldContainer>
       <Label>{label}</Label>

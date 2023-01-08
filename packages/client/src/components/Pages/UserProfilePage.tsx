@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { useQueryClient, useQuery, useMutation } from 'react-query';
 import { User } from '../../types/users';
 import Button from '../Atoms/Button';
 import Label from '../Atoms/Label';
@@ -9,38 +10,53 @@ import UserProfile from '../Organisms/UserProfile';
 import UserProfileForm from '../Organisms/UserProfileForm';
 import CenteredLayout from '../Templates/CenteredLayout';
 import CenteredContent from '../Templates/CenteredLayout';
+import { getUserProfile, updateUserProfile } from '../../api/users';
+import Error from '../Atoms/Error';
 
 type UserProfileProps = {};
 
 function UserProfilePage({}: UserProfileProps) {
   const [isEditing, setIsEditing] = useState(false);
+  const queryClient = useQueryClient();
 
-  const defaultUserValues: User = {
-    id: '1',
-    name: 'toto-2',
-    email: 'toto@mail.com',
-    city: 'England',
-  };
+  const {
+    data: userData,
+    isLoading,
+    isError,
+    isSuccess,
+    error,
+  } = useQuery('user', getUserProfile);
+
+  const mutation = useMutation(updateUserProfile, {
+    onSuccess: () => {
+      queryClient.invalidateQueries('user');
+    },
+  });
 
   const onEditProfile = () => {
     setIsEditing(true);
   };
 
-  const onSubmitUserProfile = (data: any) => {
-    console.log(data);
+  const onSubmitUserProfile = (userData: User) => {
+    mutation.mutate(userData);
     setIsEditing(false);
   };
 
   return (
     <CenteredLayout>
       <Title>Mon profil</Title>
-      {isEditing ? (
-        <UserProfileForm
-          onSubmit={onSubmitUserProfile}
-          defaultValues={defaultUserValues}
-        />
-      ) : (
-        <UserProfile user={defaultUserValues} onEdit={() => onEditProfile()} />
+      {isSuccess &&
+        (isEditing ? (
+          <UserProfileForm
+            onSubmit={onSubmitUserProfile}
+            defaultValues={userData}
+          />
+        ) : (
+          <UserProfile user={userData} onEdit={() => onEditProfile()} />
+        ))}
+      {isLoading && <p>Loading...</p>}
+      {isError && (
+        <Error>Une erreur est survenue: {(error as Error).message}</Error>
       )}
     </CenteredLayout>
   );

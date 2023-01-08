@@ -16,8 +16,6 @@ function UserProfileForm({ onSubmit, defaultValues }: UserProfileFormProps) {
     formState: { errors },
   } = useForm({ defaultValues });
 
-  console.log(errors);
-
   return (
     <StyledForm onSubmit={handleSubmit(onSubmit)}>
       <FormTextField
