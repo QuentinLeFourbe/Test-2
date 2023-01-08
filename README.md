@@ -35,6 +35,8 @@ Un storybook est aussi à disposition via la commande
     npm run storybook
     ```
 
+Les composants utilisant date-fns ne sont pas fonctionnels dans le Storybook à cause d'un bug lié à Vite js
+
 ## Prétentions
 
 52K
