@@ -163,6 +163,10 @@ const CalendarDate = styled.button<{
   color: ${({ isDateActive }) => (isDateActive ? 'black' : '#e4e7ec')};
   background: ${({ isDateSelected }) => (isDateSelected ? '#e4e7ec' : 'none')};
   font-weight: ${({ isDateSelected }) => (isDateSelected ? 'bold' : 'normal')};
+
+  &:hover {
+    background: #f4f5f7;
+  }
 `;
 
 const ChevronButton = styled.button`
