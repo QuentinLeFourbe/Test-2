@@ -54,9 +54,12 @@ function UserProfilePage({}: UserProfileProps) {
         ) : (
           <UserProfile user={userData} onEdit={() => onEditProfile()} />
         ))}
-      {isLoading && <p>Loading...</p>}
+      {isLoading && <p>Chargement en cours...</p>}
       {isError && (
-        <Error>Une erreur est survenue: {(error as Error).message}</Error>
+        <Error>
+          Une erreur est survenue: {(error as Error).message} <br />
+          Pensez à lancer la fake api via la commande npm run json-server
+        </Error>
       )}
     </CenteredLayout>
   );
