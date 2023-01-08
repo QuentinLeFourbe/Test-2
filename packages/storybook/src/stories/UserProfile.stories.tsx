@@ -13,7 +13,10 @@ const Template: Story<UserProfileProps> = (args) => <UserProfile {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  name: 'John Doe',
-  email: 'johndoe@totomail.com',
-  city: 'New York',
+  user: {
+    id: '1',
+    name: 'John Doe',
+    email: 'johndoe@totomail.com',
+    city: 'New York',
+  },
 };

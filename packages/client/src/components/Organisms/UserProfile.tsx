@@ -12,11 +12,11 @@ export type UserProfileProps = {
 function UserProfile({ user, onEdit }: UserProfileProps) {
   return (
     <Container>
-      <Label>Name</Label>
+      <Label>Nom</Label>
       <p>{user.name}</p>
       <Label>Email</Label>
       <p>{user.email}</p>
-      <Label>City</Label>
+      <Label>Ville</Label>
       <p>{user.city}</p>
       <StyledButton onClick={onEdit}>Edit</StyledButton>
     </Container>
@@ -30,7 +30,7 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   gap: 8px;
-  border: 1px solid black;
+  box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.2);
   padding: 16px;
   border-radius: 8px;
   width: 200px;
