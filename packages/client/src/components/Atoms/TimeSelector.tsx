@@ -56,10 +56,26 @@ const HourContainer = styled.div`
   align-items: stretch;
   justify-content: center;
   overflow: auto;
-  height: 300px;
+  height: 225px;
+  width: 150px;
+  padding: 12px 0;
+  //make a thin scrollbar
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #c2c2c2;
+    border-radius: 4px;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: #999999;
+  }
 `;
 
 const HourItem = styled.button<{ isSelected: boolean }>`
+  color: #565f68;
+  font-size: 12px;
   border: none;
   background: none;
   cursor: pointer;

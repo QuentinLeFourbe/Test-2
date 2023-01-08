@@ -1,11 +1,17 @@
-import React from 'react'
+import React from 'react';
+import DateSelector from '../Atoms/DateSelector';
+import TimeSelector from '../Atoms/TimeSelector';
+import Calendar from '../Molecules/Calendar';
+import CenteredLayout from '../Templates/CenteredLayout';
 
-type Props = {}
+type Props = {};
 
 function CalendarPage({}: Props) {
   return (
-    <div>CalendarPage</div>
-  )
+    <CenteredLayout>
+      <Calendar />
+    </CenteredLayout>
+  );
 }
 
-export default CalendarPage
+export default CalendarPage;

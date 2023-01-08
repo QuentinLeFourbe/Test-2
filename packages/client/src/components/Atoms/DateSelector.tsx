@@ -16,10 +16,12 @@ import { ReactComponent as ChevronLeft } from '../assets/chevron-left.svg';
 import { ReactComponent as ChevronRight } from '../assets/chevron-right.svg';
 
 export type DateSelectorProps = {
-  onSelectedDateChange: (date: Date) => void;
+  onDateSelected: (date: Date) => void;
 };
 
-function DateSelector({ onSelectedDateChange }: DateSelectorProps) {
+function DateSelector({
+  onDateSelected: onSelectedDateChange,
+}: DateSelectorProps) {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [activeDate, setActiveDate] = useState(new Date());
   const days = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
@@ -105,8 +107,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
-  width: 300px;
-  padding: 8px;
+  width: 250px;
 `;
 
 const MonthContainer = styled.div`
@@ -136,7 +137,7 @@ const DateContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   grid-template-rows: repeat(5, 1fr);
-  gap: 8px;
+  gap: 4px;
   justify-items: center;
   align-items: center;
 `;

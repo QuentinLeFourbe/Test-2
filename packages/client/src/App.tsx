@@ -3,6 +3,7 @@ import UserProfilePage from './components/Pages/UserProfilePage';
 import './App.css';
 import Header from './components/Organisms/Header';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import CalendarPage from './components/Pages/CalendarPage';
 
 const queryClient = new QueryClient();
 
@@ -13,6 +14,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/profile" element={<UserProfilePage />} />
+          <Route path="/" element={<CalendarPage />} />
         </Routes>
       </BrowserRouter>
     </QueryClientProvider>
